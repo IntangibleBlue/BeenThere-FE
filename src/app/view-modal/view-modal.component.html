@@ -1,0 +1,48 @@
+<div class="modal-content">
+    <div class="modal-header text-center d-block">
+      <h4 class="modal-title d-inline-block">My Trip to {{pin.name}}</h4>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class = "col">
+          <div class="form-group">
+            <h4 class="blue">Trip Description: </h4>
+            <h6>{{pin.title}}</h6>
+            <h4 class="blue">Trip Date: </h4>
+            <h6 id="date">{{pin.departDate}}</h6>
+            <h4 class="blue">Trip Log: </h4>
+            <h6>{{pin.log}}</h6>
+          </div>
+        </div>
+        <div class = "col">
+          <div id="carousel" class="carousel slide" data-bs-ride="carousel" data-interval="false">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="{{pin.imageUrl1}}" alt=" ">
+                </div>
+                <div class="carousel-item">
+                  <img src="{{pin.imageUrl2}}" alt=" ">
+                </div>
+                <div class="carousel-item">
+                  <img src="{{pin.imageUrl3}}" alt=" ">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="openUpdateModal()">Edit Pin</button>
+        <button type="button" class="btn btn-danger" (click)="openDeleteModal()">Delete Pin</button>
+        <button type="button" class="btn btn-warning" (click)="activeModalService.dismiss('Cross click')">Close</button>
+    </div>
+  
+  </div>

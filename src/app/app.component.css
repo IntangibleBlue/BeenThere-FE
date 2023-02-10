@@ -1,0 +1,26 @@
+.full {
+    width: auto;
+    height: 92vh;
+}
+
+.navbar {
+    background-color: #337AB7;
+    padding-left: 15px;
+    padding-right: 20px;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.form-control {
+    width: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#viewAllButton {
+    margin-right: 20px;
+}
