@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Pin } from '../pin';
 import { PindataService } from '../pindata.service';
 import { ViewModalComponent } from '../view-modal/view-modal.component';
 
@@ -14,6 +15,7 @@ export class PinModalComponent {
   @Input() pin: any;
   @Input() id: any;
   @Input() pins: any;
+  @Input() newPin: any;
 
   openViewModal(){
     const modalRef = this.modalService.open(ViewModalComponent, {size: 'xl', modalDialogClass: 'modal-dialog-centered'});
@@ -66,19 +68,18 @@ export class PinModalComponent {
     })
   }
 
-
   constructor(private pinDataService: PindataService, public activeModalService: NgbActiveModal, public modalService: NgbModal){}
 
   ngOnInit(): void {
-    this.pinDataService.getPinById(this.pin.id).subscribe({
-      next: (data) => {
-        this.pin = data;
-      }, 
-    })
+    // this.pinDataService.getPinById(this.pin.id).subscribe({
+    //   next: (data) => {
+    //     this.pin = data;
+    //   }, 
+    // })
   }
 
   onSubmit(){
-    this.pinDataService.savePin(this.pin).subscribe({
+    this.pinDataService.savePin(this.newPin).subscribe({
       next: (data) => {
         this.activeModalService.dismiss();
         this.renderPins();

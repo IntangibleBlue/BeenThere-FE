@@ -22,6 +22,7 @@ export class UserLoginComponent implements OnInit {
   @Input() id: any;
   pin: Pin = new Pin();
   pins: Pin[]=[];
+  newPin = new Pin();
 
   constructor(private loginuserservice: LoginuserService, private modalService: NgbModal, private activeModalService: NgbActiveModal, public pinDataService: PindataService) {}
 
@@ -66,6 +67,7 @@ export class UserLoginComponent implements OnInit {
     this.pin.imageUrl2 = "";
     this.pin.imageUrl3 = "";
     modalRef.componentInstance.pin = this.pin;
+    modalRef.componentInstance.newPin = this.newPin;
   }
 
   dropPins(){
@@ -132,7 +134,6 @@ export class UserLoginComponent implements OnInit {
         }
       }
 
-
 // Listen for the event fired when the user selects a prediction and retrieve more details for that place
 
       searchBox.addListener("places_changed", () => {
@@ -151,22 +152,13 @@ export class UserLoginComponent implements OnInit {
             position: place.geometry.location,
             animation: google.maps.Animation.DROP,
             })
-          this.pin.name=place.name;
+          this.newPin.name=place.name;
           setTimeout(()=>{this.openPinModal()}, 1000);
-          this.pin.lat = String(marker.getPosition()!.lat());
-          this.pin.lng = String(marker.getPosition()!.lng());
-          this.pin.userId = Number(sessionStorage.getItem("currentUserId"));
-                    
-// Click handler for pre-existing marker
-
-          marker.addListener("click", () => {
-            this.pin.name=place.name;
-            this.openViewModal();
-          })       
+          this.newPin.lat = String(marker.getPosition()!.lat());
+          this.newPin.lng = String(marker.getPosition()!.lng());
+          this.newPin.userId = Number(sessionStorage.getItem("currentUserId")); 
         })
       })
     })
-
-   
   }
 }
