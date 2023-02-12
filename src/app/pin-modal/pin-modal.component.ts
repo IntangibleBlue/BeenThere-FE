@@ -80,7 +80,6 @@ export class PinModalComponent {
   onSubmit(){
     this.pinDataService.savePin(this.pin).subscribe({
       next: (data) => {
-        alert("Pin saved!");
         this.activeModalService.dismiss();
         this.renderPins();
       },

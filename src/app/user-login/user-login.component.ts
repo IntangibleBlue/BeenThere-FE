@@ -152,7 +152,6 @@ export class UserLoginComponent implements OnInit {
             animation: google.maps.Animation.DROP,
             })
           this.pin.name=place.name;
-          map.setCenter(marker.getPosition() as google.maps.LatLng);
           setTimeout(()=>{this.openPinModal()}, 1000);
           this.pin.lat = String(marker.getPosition()!.lat());
           this.pin.lng = String(marker.getPosition()!.lng());
