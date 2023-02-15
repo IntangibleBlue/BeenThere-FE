@@ -47,7 +47,7 @@ export class UserLoginComponent implements OnInit {
     login.reset();
   }
 
-  openRegisterModal() {
+    openRegisterModal() {
     const modalRef = this.modalService.open(RegisterUserComponent, {size: 'md', backdrop: 'static', modalDialogClass: 'modal-dialog-centered'});
     modalRef.componentInstance.data = this.data;
   }
@@ -111,7 +111,7 @@ export class UserLoginComponent implements OnInit {
 //Render saved pins
 
       for (let i = 0; i<this.pins.length; i++) {
-        if (this.pins[i].userId === Number(sessionStorage.getItem("currentUserId"))) {
+        if (this.pins[i].userId === Number(sessionStorage.getItem('currentUserId'))) {
         let marker = new google.maps.Marker({
           position: { lat: Number(this.pins[i].lat), lng: Number(this.pins[i].lng) },
           map,
