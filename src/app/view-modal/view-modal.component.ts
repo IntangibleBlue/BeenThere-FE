@@ -17,9 +17,7 @@ export class ViewModalComponent {
   
     constructor(public modalService: NgbModal, public activeModalService: NgbActiveModal){}
 
-  ngOnInit(): void {
-    document.getElementById("date")!.innerHTML = this.convertDate();
-  }
+  ngOnInit(): void {}
 
   openUpdateModal(){
     const modalRef = this.modalService.open(UpdatePinComponent, {size: 'lg', modalDialogClass: 'modal-dialog-centered'});
@@ -36,11 +34,4 @@ export class ViewModalComponent {
     modalRef.componentInstance.id = this.pin.id;
   }
 
-  convertDate() {
-    let day = new Date(this.pin.departDate).getDate();
-    let month = new Date(this.pin.departDate).toLocaleString('default', {month: 'long'});
-    let year = new Date(this.pin.departDate).getFullYear();
-    let newDateFormat = `${month} ${day}, ${year}`;
-    return newDateFormat;
-    }
 }

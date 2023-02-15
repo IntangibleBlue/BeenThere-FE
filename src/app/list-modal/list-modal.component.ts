@@ -27,18 +27,10 @@ export class ListModalComponent {
     }
   }
 
-  convertDate() {
-    let day = new Date(this.pin.departDate).getDate();
-    let month = new Date(this.pin.departDate).toLocaleString('default', {month: 'long'});
-    let year = new Date(this.pin.departDate).getFullYear();
-    let newDateFormat = `${month} ${day}, ${year}`;
-    return newDateFormat;
-    }
-
   ngOnInit(): void {
-      this.pinDataService.getAllPins().subscribe(data=>{
-        this.pins=data;
-      })
-    }
+    this.pinDataService.getAllPins().subscribe(data=>{
+      this.pins=data;
+    })
+  }
 
 }

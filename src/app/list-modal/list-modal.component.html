@@ -10,12 +10,11 @@
             <th scope="col">Trip Date</th>
             <th scope="col">Trip Location</th>
             <th scope="col">Trip Description</th>
-
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let pin of pins | orderBy:sortFn">
-            <td id="date">{{pin.departDate}}</td>
+            <td>{{pin.departDate | date : 'longDate'}}</td>
             <td>{{pin.name}}</td>
             <td>{{pin.title}}</td>
           </tr>
