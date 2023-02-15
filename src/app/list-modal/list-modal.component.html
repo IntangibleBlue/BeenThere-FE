@@ -13,11 +13,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let pin of pins | orderBy:sortFn">
-            <td>{{pin.departDate | date : 'longDate'}}</td>
-            <td>{{pin.name}}</td>
-            <td>{{pin.title}}</td>
-          </tr>
+          <ng-container *ngFor="let pin of pins | orderBy:sortFn">
+            <tr *ngIf="this.pin.userId === currentUserId">
+              <td>{{pin.departDate | date : 'longDate'}}</td>
+              <td>{{pin.name}}</td>
+              <td>{{pin.title}}</td>
+            </tr>
+          </ng-container>
         </tbody>
       </table>
 

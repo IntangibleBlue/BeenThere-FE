@@ -14,6 +14,8 @@ export class ListModalComponent {
   @Input() pin: any;
   @Input() pins: any;
   @Input() id: any;
+  @Input() sessionStorage: any;
+  currentUserId = Number(sessionStorage.getItem('currentUserId'));
   
   constructor(public activeModalService: NgbActiveModal, private pinDataService: PindataService){}
 
@@ -31,6 +33,9 @@ export class ListModalComponent {
     this.pinDataService.getAllPins().subscribe(data=>{
       this.pins=data;
     })
+    const userDetails = JSON.parse(JSON.stringify(this.data));
+    sessionStorage.setItem("currentUserId", userDetails.id);
   }
+
 
 }
